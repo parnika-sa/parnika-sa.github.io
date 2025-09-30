@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parnika SA | Modern Portfolio</title>
+    <title>Ankit Maurya | Modern Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -44,10 +44,10 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: var(--text-dark);
@@ -225,9 +225,23 @@
         .hero-content h1 span {
             color: var(--primary-blue);
         }
+        
+        .hero-content .subtitle {
+            font-size: 1.5em;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            min-height: 2.2em; /* Reserve space for typing text */
+        }
+        .typing-cursor {
+            color: var(--accent-orange);
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        .hero-content p {
-            font-size: 1.4em;
+        .hero-content p.intro {
+            font-size: 1.2em;
             color: var(--text-light);
             margin-bottom: 40px;
             max-width: 700px;
@@ -297,11 +311,44 @@
             color: var(--text-light);
         }
 
-        /* --- Skills Section --- */
-        #skills {
-            background-color: var(--white);
+        /* --- Services Section --- */
+        #services {
+             background-color: var(--white);
         }
-
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 5px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow-medium);
+            border-bottom-color: var(--primary-blue);
+        }
+        .service-card i {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--accent-orange);
+        }
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        .service-card p {
+            color: var(--text-light);
+        }
+        
+        /* --- Skills Section --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -309,7 +356,7 @@
         }
 
         .skill-card {
-            background-color: var(--bg-light);
+            background-color: var(--white);
             padding: 30px 20px;
             border-radius: 10px;
             text-align: center;
@@ -357,8 +404,77 @@
             color: var(--text-dark);
             margin-bottom: 0;
         }
+        
+        /* --- Experience Section --- */
+        #experience {
+            background-color: var(--white);
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--white);
+            border: 4px solid var(--accent-orange);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+        }
+        .timeline-content h3 {
+            font-size: 1.4em;
+            color: var(--primary-blue);
+        }
+        .timeline-content .date {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+        }
+        .timeline-content p {
+            color: var(--text-light);
+        }
 
         /* --- Projects Section --- */
+        #projects {
+            background-color: var(--bg-light);
+        }
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -384,11 +500,6 @@
             width: 100%;
             height: 220px;
             overflow: hidden;
-            background-color: var(--bg-light); /* Placeholder background */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
         }
         .project-image img {
             width: 100%;
@@ -419,54 +530,81 @@
             margin-bottom: 20px;
             flex-grow: 1;
         }
-
+        .project-tags {
+            margin-bottom: 20px;
+        }
+        .project-tags span {
+            background: var(--bg-light);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            color: var(--text-dark);
+        }
         .project-links {
             margin-top: auto;
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
-
+        
         .project-links a {
-            font-size: 1em;
-            font-weight: 600;
-            color: var(--accent-orange);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .project-links a:hover {
-            color: var(--primary-blue);
+            flex-basis: calc(50% - 10px);
         }
 
         /* --- Contact Section --- */
         #contact {
-            background-color: var(--primary-blue);
-            color: var(--white);
+             background-color: var(--white);
+        }
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
             text-align: center;
         }
-        #contact .section-title {
-            color: var(--white);
-        }
-        #contact .section-title::after {
-            background-color: var(--accent-orange);
-        }
-
         #contact p {
             font-size: 1.2em;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 40px;
+            color: var(--text-light);
         }
-
-        .contact-links a {
-            color: var(--white);
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .contact-form .btn {
+            align-self: center;
+            width: fit-content;
+        }
+        
+        .social-links {
+            margin-top: 40px;
+        }
+        .social-links a {
+            color: var(--text-dark);
             font-size: 1.8em;
             margin: 0 15px;
             transition: color 0.3s ease, transform 0.3s ease;
         }
-        .contact-links a:hover {
-            color: var(--accent-orange);
+        .social-links a:hover {
+            color: var(--primary-blue);
             transform: translateY(-5px);
         }
 
@@ -479,89 +617,69 @@
             font-size: 0.9em;
         }
 
-        /* --- Scroll Reveal Animations (using JavaScript) --- */
+        /* --- Scroll Reveal Animations --- */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+        .reveal.from-left {
+            transform: translateX(-50px);
+        }
+        .reveal.from-right {
+            transform: translateX(50px);
+        }
+        .reveal.from-left.active, .reveal.from-right.active {
+             transform: translateX(0);
+        }
 
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            .navbar .nav-links {
-                margin-left: auto;
-            }
-            .hero-content h1 {
-                font-size: 3.5em;
-            }
-            .hero-content p {
-                font-size: 1.2em;
-            }
+            h2.section-title { font-size: 2.5em; }
+            .hero-content h1 { font-size: 3.5em; }
+            .hero-content p.intro { font-size: 1.1em; }
             #about .container {
                 flex-direction: column;
                 text-align: center;
             }
-            .about-text {
-                padding-left: 0;
-                margin-top: 30px;
-            }
-            .about-image {
-                max-width: 80%;
-            }
+            .about-text { padding-left: 0; margin-top: 30px; }
+            .about-image { max-width: 80%; }
             .skills-grid, .projects-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
-            .navbar .nav-links {
-                display: none; /* Hide nav links for small screens, can add a hamburger menu if needed */
-            }
-            .navbar .logo {
-                width: 100%;
-                text-align: center;
-            }
+            .navbar .nav-links { display: none; }
+            .navbar .logo { width: 100%; text-align: center; }
             .hero {
-                height: auto;
                 min-height: 100vh;
-                padding-top: 100px;
-                padding-bottom: 50px;
+                padding: 100px 20px 50px;
             }
-            .hero-content h1 {
-                font-size: 2.8em;
-            }
-            .hero-content p {
-                font-size: 1em;
-            }
-            h2.section-title {
-                font-size: 2.2em;
-            }
-            .project-card {
-                margin: auto;
-            }
+            .hero-content h1 { font-size: 2.8em; }
+            .hero-content .subtitle { font-size: 1.2em; }
+            h2.section-title { font-size: 2.2em; }
+            .timeline::after { left: 30px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 20px; }
+            .timeline-item.right { left: 0%; }
+            .reveal.from-left, .reveal.from-right { transform: translateY(30px); }
+            .reveal.from-left.active, .reveal.from-right.active { transform: translateY(0); }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            .hero-content h1 {
-                font-size: 2.2em;
-            }
-            .profile-picture {
-                width: 150px;
-                height: 150px;
-            }
-            .skills-grid, .projects-grid {
+            section { padding: 60px 0; }
+            .container { padding: 0 15px; }
+            .hero-content h1 { font-size: 2.2em; }
+            .profile-picture { width: 150px; height: 150px; }
+            .skills-grid, .projects-grid, .services-grid {
                 grid-template-columns: 1fr;
             }
-            .navbar .logo {
-                 font-size: 1.5em;
-            }
+            .navbar .logo { font-size: 1.5em; }
         }
 
     </style>
@@ -570,11 +688,13 @@
 
     <nav class="navbar" id="main-navbar">
         <div class="container">
-            <a href="#" class="logo">PARNIKA SA</a>
+            <a href="#" class="logo">ANKIT MAURYA</a>
             <div class="nav-links">
                 <a href="#hero">Home</a>
                 <a href="#about">About</a>
+                <a href="#services">Services</a>
                 <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -584,11 +704,12 @@
     <section class="hero" id="hero">
         <div class="container hero-content reveal">
             <div class="profile-picture">
-                <img src="https://via.placeholder.com/200/007bff/FFFFFF?text=Parnika+SA" alt="Parnika SA Profile Picture">
+                <img src="https://via.placeholder.com/200/007bff/FFFFFF?text=Ankit+Maurya" alt="Ankit Maurya Profile Picture">
             </div>
-            <h1>Hi, I'm <span>Parnika SA</span></h1>
-            <p>Ek passionate developer jo creative aur user-friendly web solutions banane mein vishwas rakhta hai.</p>
-            <a href="#projects" class="btn">Mere Projects Dekhein <i class="fas fa-arrow-right"></i></a>
+            <h1>Hi, I'm <span>Ankit Maurya</span></h1>
+            <h2 class="subtitle"><span id="typing-text"></span><span class="typing-cursor">|</span></h2>
+            <p class="intro">A passionate developer dedicated to building creative and user-friendly web solutions.</p>
+            <a href="#projects" class="btn">View My Projects <i class="fas fa-arrow-right"></i></a>
             <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
         </div>
     </section>
@@ -600,10 +721,33 @@
             </div>
             <div class="about-text">
                 <h3>About Me</h3>
-                <p>Namaste! Main Parnika SA hoon, ek web enthusiast jise code likhna aur naye-naye cheezein banana pasand hai. Meri journey technology ki duniya mein problem-solving aur innovation ke junoon ke saath shuru hui.</p>
-                <p>Frontend development (HTML, CSS, JavaScript, React) se lekar backend (Node.js, Python) tak, main ek full-stack developer banne ki disha mein kaam kar rahi hoon. Main hamesha naye tools aur frameworks seekhne ke liye taiyaar rehti hoon.</p>
-                <p>Mere portfolio mein aapko mere kuch haal ke projects milenge, jo meri skills aur creativity ko darshate hain. Agar aapko mera kaam pasand aaye, toh mujhse zaroor contact karein!</p>
-                <a href="#contact" class="btn btn-secondary">Contact Karein <i class="fas fa-envelope"></i></a>
+                <p>Hello! I'm Ankit Maurya, a web enthusiast who loves to code and build new things. My journey into the world of technology began with a passion for problem-solving and innovation.</p>
+                <p>From frontend development (HTML, CSS, JavaScript, React) to backend technologies (Node.js, Python), I am on a path to becoming a versatile full-stack developer. I am always eager to learn new tools and frameworks.</p>
+                <p>In my portfolio, you'll find some of my recent projects that showcase my skills and creativity. If you like what you see, feel free to get in touch!</p>
+                <a href="#contact" class="btn btn-secondary">Get in Touch <i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="reveal">
+        <div class="container">
+            <h2 class="section-title">What I Offer</h2>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Creating responsive, high-performance websites from scratch using modern technologies like React and Node.js.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-palette"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Designing intuitive and engaging user interfaces that provide a seamless user experience across all devices.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Ensuring your website looks and functions perfectly on all screen sizes, from mobile phones to desktops.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -648,6 +792,35 @@
         </div>
     </section>
 
+    <section id="experience" class="reveal">
+        <div class="container">
+             <h2 class="section-title">Experience & Education</h2>
+             <div class="timeline">
+                 <div class="timeline-item left reveal from-left">
+                     <div class="timeline-content">
+                         <h3>Frontend Developer Intern</h3>
+                         <div class="date">June 2024 - Present</div>
+                         <p>Worked on developing and maintaining user interfaces for web applications using React and modern CSS frameworks.</p>
+                     </div>
+                 </div>
+                 <div class="timeline-item right reveal from-right">
+                     <div class="timeline-content">
+                         <h3>Bachelor of Technology (B.Tech)</h3>
+                         <div class="date">2021 - 2025</div>
+                         <p>Pursuing my degree in Computer Science & Engineering, focusing on web development and software engineering principles.</p>
+                     </div>
+                 </div>
+                 <div class="timeline-item left reveal from-left">
+                     <div class="timeline-content">
+                         <h3>Personal Projects</h3>
+                         <div class="date">2022 - Ongoing</div>
+                         <p>Developed several full-stack applications to enhance my skills in different technologies. See my projects below!</p>
+                     </div>
+                 </div>
+             </div>
+        </div>
+    </section>
+
     <section id="projects" class="reveal">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
@@ -659,10 +832,14 @@
                     </div>
                     <div class="project-content">
                         <h3>E-commerce Website</h3>
-                        <p>Ek fully functional e-commerce platform jisme user authentication, product listings, shopping cart aur payment integration hai.</p>
+                        <p>A fully functional e-commerce platform featuring user authentication, product listings, a shopping cart, and payment gateway integration.</p>
+                        <div class="project-tags">
+                            <span>React</span><span>Node.js</span><span>MongoDB</span>
+                        </div>
                         <div class="project-links">
-                            <a href="https://github.com/parnika-sa/YOUR_ECOMMERCE_REPO" target="_blank">View Code <i class="fas fa-code"></i></a>
-                            </div>
+                             <a href="#" target="_blank" class="btn btn-secondary">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                             <a href="#" target="_blank" class="btn">View Code <i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -672,10 +849,14 @@
                     </div>
                     <div class="project-content">
                         <h3>Weather Dashboard</h3>
-                        <p>Ek dynamic weather application jo real-time weather data fetch karta hai aur user ko cities ka mausam dikhata hai.</p>
+                        <p>A dynamic weather application that fetches real-time weather data from an API and displays the forecast for various cities.</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span><span>HTML</span><span>CSS</span><span>API</span>
+                        </div>
                         <div class="project-links">
-                            <a href="https://github.com/parnika-sa/YOUR_WEATHER_REPO" target="_blank">View Code <i class="fas fa-code"></i></a>
-                            </div>
+                            <a href="#" target="_blank" class="btn btn-secondary">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank" class="btn">View Code <i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -685,32 +866,42 @@
                     </div>
                     <div class="project-content">
                         <h3>Task Management App</h3>
-                        <p>Ek simple aur effective to-do list application jahan user tasks add, edit aur delete kar sakte hain.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/parnika-sa/YOUR_TASKAPP_REPO" target="_blank">View Code <i class="fas fa-code"></i></a>
-                            </div>
+                        <p>A simple and effective to-do list application that allows users to add, edit, and delete tasks to manage their daily workflow.</p>
+                        <div class="project-tags">
+                            <span>React</span><span>Local Storage</span>
+                        </div>
+                         <div class="project-links">
+                             <a href="#" target="_blank" class="btn btn-secondary">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                             <a href="#" target="_blank" class="btn">View Code <i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
 
-                </div>
+            </div>
         </div>
     </section>
 
     <section id="contact" class="reveal">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <p>Agar aapko mere projects pasand aaye ya aapko collaboration ke liye discuss karna hai, toh mujhse contact karein.</p>
-            <div class="contact-links">
+        <div class="container contact-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>If you like my projects or want to discuss a potential collaboration, I'd love to hear from you.</p>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+            </form>
+            <div class="social-links">
                 <a href="mailto:your-email@example.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/parnika-sa" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
+                <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Parnika SA. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Ankit Maurya. All rights reserved.</p>
         </div>
     </footer>
 
@@ -725,25 +916,49 @@
             }
         });
 
-        // --- Smooth Scroll for Navbar Links ---
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        // --- Typing Animation ---
+        const typingTextElement = document.getElementById('typing-text');
+        const phrases = ["Web Developer", "UI/UX Enthusiast", "Full-Stack Developer", "Problem Solver"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+            
+            const typingSpeed = isDeleting ? 100 : 150;
+            setTimeout(type, typingSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typingTextElement) {
+                setTimeout(type, 1000);
+            }
         });
+
 
         // --- Scroll Reveal Animation ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Stop observing once visible
                 }
             });
-        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(element => {
             observer.observe(element);
@@ -752,8 +967,6 @@
         // --- Update Current Year in Footer ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // --- Profile picture fallback (if you don't use a real image yet) ---
-        // This is a placeholder. Replace "https://via.placeholder.com/200/007bff/FFFFFF?text=Parnika+SA" with your actual image URL.
     </script>
 
 </body>
